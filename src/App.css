@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  text-align: left;
 }
 
 .App-logo {
@@ -25,4 +25,41 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+#logo {
+  height: 100px;
+  width: 100px;
+}
+.pageheader {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+#navcontainer {
+ display: flex;
+ min-width: 50%;
+ justify-content: center;
+ align-items: center;
+ margin: 20px;
+}
+#navcontainer li {
+  margin-right: 10px;
+  border-radius: 12px;
+  text-decoration: none;
+  list-style: none;
+  padding: 10px;
+  color: black;
+  
+}
+#navcontainer a {
+  text-decoration: none;
+    color: black;
+}
+
+#navcontainer li:hover {
+  background-color: lightgray;
+}
+
+.active {
+  background-color: darkgray;
 }

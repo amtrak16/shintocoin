@@ -1,21 +1,51 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+// import './ui-toolkit/css/nm-cx/main.css'
+import './App.css'
+import { connect } from 'react-redux';
+import { MINECOIN, BUYCOINS, SELLCOINS } from './state/actions';
+import {BrowserRouter, Route, Link} from 'react-router-dom'
 
 class App extends Component {
   render() {
     return (
+      <BrowserRouter >
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="pageheader">
+        <img id="logo" src={require("./shinto_coin.png")} />
+        <ul id="navcontainer">
+          <ActiveMenuLink exact={true} to="/" label="Home" />
+          <ActiveMenuLink to="/mine" label="Mine" />
+          <ActiveMenuLink to="/buy" label="Buy" />
+            <ActiveMenuLink to="/sell" label="Sell" />
+            <ActiveMenuLink to="/ledger" label="Ledger" />
+
+        </ul>
+        </div>
+        <Route exact path="/" component={Home} />
+        {/* <Route path="/mine" component={Mine} />
+        <Route path="/buy" component={Buy} />
+        <Route path="/sell" component={Sell} />
+        <Route path="/ledger" component={Ledger} /> */}
+
       </div>
+      </BrowserRouter>
     );
   }
 }
+
+const Home = (props) => {
+return (
+  <div>
+    <h1>ShintoCoin</h1>
+  <p>Welcome to ShintoCoins, ShintoCoins are coins made by solving<br /> algorithms! To get started, head over to Mine Coins' and get to work!</p>
+  </div>
+)
+}
+
+const ActiveMenuLink = ({ label, to, exact }) => (
+  <Route path={to} exact={exact} children={({ match }) => (
+    <li class={`${match ? ' active' : ''}`}><Link to={to}>{label}</Link></li>
+  )} />
+)
 
 export default App;
