@@ -32,7 +32,7 @@ const triviaQuestions = [
     ]
 
 const getQuestion = () => {
-    const questionNum = Math.round(Math.random() *20)
+    const questionNum = Math.round(Math.random() * 25)
     console.log(questionNum);
     const question = triviaQuestions.find((q) => q.id === questionNum) 
     console.log(question);
