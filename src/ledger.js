@@ -53,7 +53,7 @@ class Ledger extends Component {
                         <tbody>
                         {this.props.transactions.map((trn) => {
                             return (
-                                <tr>
+                                <tr key={trn.id}>
         <td>{trn.type}</td>
         <td id="trnamt" className="text-right">{trn.amount}</td>
         <td id="trnval">{trn.value}</td>
