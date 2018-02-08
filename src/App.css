@@ -63,3 +63,32 @@
 .active {
   background-color: darkgray;
 }
+#SL {
+  background-color: lightgray;
+  width:400px;
+  text-align: center;
+  font-size: 25px;
+  margin: none;
+  padding: none;
+}
+#ledgerctn {
+    display: flex;
+    flex-direction: column;
+    border-color: lightgoldenrodyellow;
+    border-style: groove;
+    width: 400px;
+    align-items: center
+}
+#ldgrbtn {
+  border-radius: 5px;
+  background-color: lightgray;
+  height: 25px;
+}
+th {
+  text-align: center;
+  font-size: 23px;
+}
+td {
+  text-align: center;
+  font-size: 23px;
+}
