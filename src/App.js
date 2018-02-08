@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { MINECOIN, BUYCOINS, SELLCOINS } from './state/actions';
 import {BrowserRouter, Route, Link} from 'react-router-dom'
 import  Mine  from './Mine';
+import Sell from './Sell';
 
 class App extends Component {
   render() {
