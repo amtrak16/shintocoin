@@ -13,8 +13,14 @@ class Transaction {
         this.type = type;
         this.amount = amount;
         this.value = value;
+        this.id = genId(type);
     }
 }
+
+const genId = (type) => {
+    let rand = Math.random().toString(36).substr(2, 9);
+    return type.replace(/ /g, '') + rand;
+  }
 
 const initialState = {
     transactions: [],

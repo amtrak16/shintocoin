@@ -27,9 +27,7 @@ class App extends Component {
         </ul>
         </div>
         <Route exact path="/" component={Home} />
-{/* <<<<<<< Updated upstream */}
         <Route path="/mine" component={Mine} />
-        {/* <Route path="/buy" component={Buy} /> */}
         <Route path="/buy" component={ConnectedBuy} />
        <Route path="/sell" component={wrappedConnect} />
         <Route path="/ledgerdetails/:id" component={LedgerDetails} />

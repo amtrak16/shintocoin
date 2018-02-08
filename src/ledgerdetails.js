@@ -26,19 +26,23 @@ import { BrowserRouter, Route, Link } from 'react-router-dom'
 // }
 
 class LedgerDetails extends Component {
-    // constructor(props) {
-    //     super(props);
+    constructor(props) {
+        super(props);
 
-    //     this.state = initialState
-    // }
+        // this.state = initialState
+    }
     render() {
-        // const transactions = transactions.find(({ id }) => id === props.match.params.trnid)
-
+        console.log(this.props.match.params.id)
+        const transaction = this.props.transactions.find(({ id }) => id === this.props.match.params.id)
+        console.log(transaction)
+        
         return (
             <div>
                 <h1 id="browse">Ledger Transaction Details</h1>
                 <h2 id="hereyou"><br/>Detailed view of a transaction from the ledger.</h2>
                 <div id="ledgerctn">
+                    <p> Transaction: {transaction.id} </p>
+                    <p> {transaction.type} {transaction.amount} ShintoCoin </p>
                 </div>
             </div>
         )

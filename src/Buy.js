@@ -8,7 +8,7 @@ import { BrowserRouter, Route, Link } from 'react-router-dom';
 const mapStateToProps = (state) => {
     console.log("hi from map to state")
     return {
-        buyCoins: state.buyCoins,
+      
         curValue: state.curValue,
         curAmount: state.curAmount
 
@@ -22,7 +22,7 @@ const mapDispatchToProps = (dispatch) => {
 
     console.log(dispatch)
         return { 
-            buyCoins: (value) => dispatch (buyCoins(value))
+            buyCoins: value => dispatch (buyCoins(value))
         }
     }
 
@@ -32,15 +32,20 @@ class Buy extends Component {
     constructor(props){
         super(props)
             this.state = {
-                buyCoinsInput: ''
+                buyCoinsInput: 0,
+                errorMessage: '',
         }
     }
 
     handleBuyCoinInput(e){
         console.log("handle buy coin input")
         console.log(e.target.value)
-      
-        this.setState( {buyCoinsInput: e.target.value})
+        let errorMessage = '';
+        if (e.target.value < 0){
+            errorMessage = "Can not buy negative coins"
+        }
+
+        this.setState( {buyCoinsInput: parseInt(e.target.value), errorMessage})
     }
 
   
@@ -61,6 +66,9 @@ class Buy extends Component {
             <div>
                 <input type="number" value={this.state.buyCoinsInput} onChange={this.handleBuyCoinInput.bind(this)} placeholder="How many ShintoCoins would you like to buy?" />
                 <button onClick={(e) => {e.preventDefault() ; this.props.buyCoins(this.state.buyCoinsInput)}}>Buy</button>
+                {this.state.errorMessage.trim() != '' && 
+                    <p style={{ color: 'red'}}> {this.state.errorMessage} </p>
+            }
             </div>
         </div>
     )

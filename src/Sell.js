@@ -16,7 +16,7 @@ class Sell extends Component{
         if (this.props.curValue - e.target.value < 0 || this.props.curAmount - e.target.value < 0){
             window.alert("Transaction unavailable: balance can not be negative.")
         } else
-        this.setState({val: e.target.value})
+        this.setState({val: parseInt(e.target.value)})
     }
 
     render() {
@@ -37,7 +37,9 @@ class Sell extends Component{
 const mapStateToProps = state => {
     return {
         curValue: state.curValue,
-        curAmount: state.curAmount
+        curAmount: state.curAmount,
+        curValue: state.curValue,
+
     }
 }
 const mapDispatchToProps = dispatch => {
