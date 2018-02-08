@@ -5,38 +5,34 @@ import { connect } from 'react-redux';
 import { MINECOIN, BUYCOINS, SELLCOINS } from './state/actions';
 import { BrowserRouter, Route, Link } from 'react-router-dom'
 
-class Transaction {
-    constructor(
-        id,
-        type,
-        amount,
-        value
-    ) {
-        this.id=id
-        this.type = type;
-        this.amount = amount;
-        this.value = value;
-    }
-}
+// class Transaction {
+//     constructor(
+//         id,
+//         type,
+//         amount,
+//         value
+//     ) {
+//         this.id=id
+//         this.type = type;
+//         this.amount = amount;
+//         this.value = value;
+//     }
+// }
 
-const initialState = {
-    transactions: [new Transaction(1,'Mined', 1, 2),
-                    new Transaction(2,'Mined', 1, 3),
-                    new Transaction(3,'Sold', 1, 2),
-                    new Transaction(4,'Sold', 1, 1),
-                    new Transaction(5,'Bought', 1, 2)]
-}
+// const initialState = {
+//     transactions: [new Transaction(1,'Mined', 1, 2),
+//                     new Transaction(2,'Mined', 1, 3),
+//                     new Transaction(3,'Sold', 1, 2),
+//                     new Transaction(4,'Sold', 1, 1),
+//                     new Transaction(5,'Bought', 1, 2)]
+// }
 
 class Ledger extends Component {
-    constructor(props) {
-        super(props);
+    // constructor(props) {
+    //     super(props);
 
-        this.state = initialState
-        this.onDtlsClick = this.onDtlsClick.bind(this)
-    }
-
-    onDtlsClick({target}){
-    }
+    //     this.state = initialState
+    // }
 
     render() {
         return (
@@ -55,9 +51,9 @@ class Ledger extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                        {this.state.transactions.map((trn) => {
+                        {this.props.transactions.map((trn) => {
                             return (
-                                <tr>
+                                <tr key={trn.id}>
         <td>{trn.type}</td>
         <td id="trnamt" className="text-right">{trn.amount}</td>
         <td id="trnval">{trn.value}</td>
@@ -73,4 +69,11 @@ class Ledger extends Component {
     }
 }
 
-export default Ledger;
+const mapStateToProps = state => {
+    return {
+        transactions: state.transactions,
+    }
+}
+
+const wrappedConnect = connect(mapStateToProps)(Ledger);
+export default wrappedConnect;
