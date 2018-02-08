@@ -4,6 +4,7 @@ import './App.css'
 import { connect } from 'react-redux';
 import { MINECOIN, BUYCOINS, SELLCOINS } from './state/actions';
 import {BrowserRouter, Route, Link} from 'react-router-dom'
+import  Mine  from './Mine';
 
 class App extends Component {
   render() {
@@ -22,8 +23,8 @@ class App extends Component {
         </ul>
         </div>
         <Route exact path="/" component={Home} />
-        {/* <Route path="/mine" component={Mine} />
-        <Route path="/buy" component={Buy} />
+        <Route path="/mine" component={Mine} />
+        {/* <Route path="/buy" component={Buy} />
         <Route path="/sell" component={Sell} />
         <Route path="/ledger" component={Ledger} /> */}
 
