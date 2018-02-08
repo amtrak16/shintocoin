@@ -6,6 +6,8 @@ import { MINECOIN, BUYCOINS, SELLCOINS } from './state/actions';
 import {BrowserRouter, Route, Link} from 'react-router-dom'
 import  Mine  from './Mine';
 import Sell from './Sell';
+import Ledger from './ledger';
+import LedgerDetails from './ledgerdetails';
 
 class App extends Component {
   render() {
@@ -16,19 +18,19 @@ class App extends Component {
         <img id="logo" src={require("./shinto_coin.png")} />
         <ul id="navcontainer">
           <ActiveMenuLink exact={true} to="/" label="Home" />
-          <ActiveMenuLink to="/mine" label="Mine" />
-          <ActiveMenuLink to="/buy" label="Buy" />
-            <ActiveMenuLink to="/sell" label="Sell" />
-            <ActiveMenuLink to="/ledger" label="Ledger" />
+          <ActiveMenuLink to="/mine" label="Mine Coins" />
+          <ActiveMenuLink to="/buy" label="Buy Coins" />
+          <ActiveMenuLink to="/sell" label="Sell Coins" />
+          <ActiveMenuLink to="/ledger" label="Browse Ledger" />
 
         </ul>
         </div>
         <Route exact path="/" component={Home} />
         <Route path="/mine" component={Mine} />
         <Route path="/sell" component={Sell} />
-        {/* <Route path="/buy" component={Buy} />
-        <Route path="/ledger" component={Ledger} /> */}
-
+        {/* <Route path="/buy" component={Buy} /> */}
+        <Route path="/ledger" component={Ledger} />
+        <Route path="/ledgerdetails/:id" component={LedgerDetails} />
       </div>
       </BrowserRouter>
     );
@@ -46,7 +48,7 @@ return (
 
 const ActiveMenuLink = ({ label, to, exact }) => (
   <Route path={to} exact={exact} children={({ match }) => (
-    <li class={`${match ? ' active' : ''}`}><Link to={to}>{label}</Link></li>
+    <li className={`${match ? ' active' : ''}`}><Link to={to}>{label}</Link></li>
   )} />
 )
 
