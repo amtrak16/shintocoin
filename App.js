@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 // import './ui-toolkit/css/nm-cx/main.css'
-import './App.css'
+import './App.css';
 import { connect } from 'react-redux';
 import { MINECOIN, BUYCOINS, SELLCOINS } from './state/actions';
-import {BrowserRouter, Route, Link} from 'react-router-dom'
-import  Mine  from './Mine';
+import {BrowserRouter, Route, Link} from 'react-router-dom';
 import Sell from './Sell';
 
 class App extends Component {
@@ -24,10 +23,10 @@ class App extends Component {
         </ul>
         </div>
         <Route exact path="/" component={Home} />
-        <Route path="/mine" component={Mine} />
-        <Route path="/sell" component={Sell} />
-        {/* <Route path="/buy" component={Buy} />
+        {/* <Route path="/mine" component={Mine} />
+        <Route path="/buy" component={Buy} />
         <Route path="/ledger" component={Ledger} /> */}
+        <Route path="/sell" component={Sell} />
 
       </div>
       </BrowserRouter>
@@ -46,7 +45,7 @@ return (
 
 const ActiveMenuLink = ({ label, to, exact }) => (
   <Route path={to} exact={exact} children={({ match }) => (
-    <li class={`${match ? ' active' : ''}`}><Link to={to}>{label}</Link></li>
+    <li className={`${match ? ' active' : ''}`}><Link to={to}>{label}</Link></li>
   )} />
 )
 
